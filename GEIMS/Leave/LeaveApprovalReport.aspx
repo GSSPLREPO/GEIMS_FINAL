@@ -49,7 +49,7 @@
     <div id="divCurrenTabSelected" class="hidden" visible="false">div1</div>
     <div id="divMain" style="width: 100%; text-align: left; padding-top: 5px;">
         <div id="divTitle" class="pageTitle" style="width: 100%;">
-            Employee Wise Attendence Report
+            Employee Approved Leave Report
             <asp:Button ID="btnPrintDetail" runat="server" CssClass="btn-blue btn-blue-medium" Text="Print Detail" OnClick="btnPrintDetail_Click" />
             &nbsp;
              <asp:Button ID="btnBack" runat="server" CssClass="btn-blue btn-blue-medium Detach" Text="Cancel"
@@ -114,7 +114,7 @@
                             <div style="width: 100%; float: left; padding-top: 0px;" class="label">
                                 <div style="padding: 10px; padding-right: 20px;">
                                     <div style="float: left; text-align: center; width: 100%; padding-bottom: 10px;">
-                                        <b>Report : Employee Wise Attendence Report</b>
+                                        <b>Report :Employee Approved Leave Report</b>
                                     </div>
                                 </div>
                             </div>
@@ -175,7 +175,7 @@
                 <div style="width: 100%; float: left; padding-top: 0px;" class="label">
                     <div style="padding: 10px; padding-right: 20px;">
                         <div style="float: left; text-align: center; width: 100%; padding-bottom: 10px;">
-                            <b>Report : Leave Approval Report</b>
+                            <b>Report :Employee Approved Leave Report</b>
                         </div>
                     </div>
                 </div>

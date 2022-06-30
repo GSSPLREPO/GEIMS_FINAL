@@ -23,6 +23,7 @@ namespace GEIMS.Client.UI
                     divStatutory.Visible = false;
                     divTimeTable.Visible = false;
                     divDEOReports.Visible = false;
+                    divResultReports.Visible = false;
                 }
                 else if (Request.QueryString["Mode"] == "SchoolStudentReports")
                 {
@@ -34,6 +35,7 @@ namespace GEIMS.Client.UI
                     divAccounting.Visible = false;
                     divTimeTable.Visible = false;
                     divDEOReports.Visible = false;
+                    divResultReports.Visible = false;
 
                 }
                 else if (Request.QueryString["Mode"] == "SchoolFeesReports")
@@ -46,6 +48,7 @@ namespace GEIMS.Client.UI
                     divStatutory.Visible = false;
                     divTimeTable.Visible = false;
                     divDEOReports.Visible = false;
+                    divResultReports.Visible = false;
                 }
                 else if (Request.QueryString["Mode"] == "SchoolInventoryReports")
                 {
@@ -57,6 +60,7 @@ namespace GEIMS.Client.UI
                     divStatutory.Visible = false;
                     divTimeTable.Visible = false;
                     divDEOReports.Visible = false;
+                    divResultReports.Visible = false;
                 }
                 else if (Request.QueryString["Mode"] == "SchoolPayrollReports")
                 {
@@ -68,6 +72,7 @@ namespace GEIMS.Client.UI
                     divStatutory.Visible = false;
                     divTimeTable.Visible = false;
                     divDEOReports.Visible = false;
+                    divResultReports.Visible = false;
                 }
                 else if (Request.QueryString["Mode"] == "SchoolAccountingReports")
                 {
@@ -78,6 +83,7 @@ namespace GEIMS.Client.UI
                     divStatutory.Visible = false;
                     divTimeTable.Visible = false;
                     divDEOReports.Visible = false;
+                    divResultReports.Visible = false;
                 }
                 else if (Request.QueryString["Mode"] == "SchoolStatutoryReports")
                 {
@@ -89,6 +95,7 @@ namespace GEIMS.Client.UI
                     divTimeTable.Visible = false;
                     divAccounting.Visible = false;
                     divDEOReports.Visible = false;
+                    divResultReports.Visible = false;
                 }
                 else if (Request.QueryString["Mode"] == "SchoolTimeTableReports")
                 {
@@ -100,6 +107,7 @@ namespace GEIMS.Client.UI
                     divStatutory.Visible = false;
                     divTimeTable.Visible = true;
                     divDEOReports.Visible = false;
+                    divResultReports.Visible = false;
                 }
                 else if (Request.QueryString["Mode"] == "SchoolDEOReports")
                 {
@@ -110,7 +118,20 @@ namespace GEIMS.Client.UI
                     divAccounting.Visible = false;
                     divStatutory.Visible = false;
                     divTimeTable.Visible = false;
+                    divResultReports.Visible = false;
                     divDEOReports.Visible = true;
+                }
+                else if (Request.QueryString["Mode"] == "ResultReports")
+                {
+                    divGeneralReports.Visible = false;
+                    divPayRoll.Visible = false;
+                    divFees.Visible = false;
+                    divInventory.Visible = false;
+                    divAccounting.Visible = false;
+                    divStatutory.Visible = false;
+                    divTimeTable.Visible = false;
+                    divDEOReports.Visible = false;
+                    divResultReports.Visible = true;
                 }
                 else
                 {
@@ -122,6 +143,7 @@ namespace GEIMS.Client.UI
                     divStatutory.Visible = true;
                     divTimeTable.Visible = true;
                     divDEOReports.Visible = true;
+                    divResultReports.Visible = true;
                 }
             }
         }

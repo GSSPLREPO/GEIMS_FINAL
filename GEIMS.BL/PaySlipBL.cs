@@ -744,7 +744,7 @@ namespace GEIMS.BL
                 pSqlParameter[3].Value = intMonth;
 
                 pSqlParameter[4] = new SqlParameter("@Year", SqlDbType.Int);
-                pSqlParameter[4].Direction = ParameterDirection.Input;
+                pSqlParameter[4].Direction = ParameterDirection.Input;  
                 pSqlParameter[4].Value = intYear;
 
                 pSqlParameter[5] = new SqlParameter("@IntType", SqlDbType.Int);

@@ -110,6 +110,22 @@
                                       
                                     </div>
                                     <div style="width: 100%;" class="divclasswithfloat">
+                                        <div style="text-align: left; width: 25%; float: left;">
+                                            <div style="text-align: left; width: 15%; float: left;" class="label">
+                                                <img src="../Images/checked.gif" />
+                                            </div>
+                                            <div style="text-align: left; width: 85%; float: left;" class="label">
+                                                <a style="text-decoration: none; color: black" href="../ReportUI/TimeTableClassWise.aspx">Class Wise Time Table</a>
+                                            </div>
+                                        </div>
+                                        <div style="text-align: left; width: 25%; float: left;">
+                                            <div style="text-align: left; width: 15%; float: left;" class="label">
+                                                <img src="../Images/checked.gif" />
+                                            </div>
+                                            <div style="text-align: left; width: 85%; float: left;" class="label">
+                                                <a style="text-decoration: none; color: black" href="../ReportUI/TimeTableTeacherWise.aspx">Teacher Wise Time Table</a>
+                                            </div>
+                                        </div>
                                           <div style="text-align: left; width: 25%; float: left;">
                                             <div style="text-align: left; width: 15%; float: left;" class="label">
                                                 <img src="../Images/checked.gif" />
@@ -124,7 +140,7 @@
                                                 <img src="../Images/checked.gif" />
                                             </div>
                                             <div style="text-align: left; width: 85%; float: left;" class="label">
-                                                <a style="text-decoration: none; color: black" href="../leave/LeaveApprovalReport.aspx">Employee Leave Report</a>
+                                                <a style="text-decoration: none; color: black" href="../leave/LeaveApprovalReport.aspx">Employee Approved Leave Report</a>
                                             </div>
                                         </div>
                                     </div>
@@ -223,6 +239,7 @@
                                     </div>
                                 </fieldset>
                             </div>
+
                             <div id="divFees" runat="server" style="width: 100%;">
                                 <fieldset>
                                     <legend>Fees Reports</legend>
@@ -288,6 +305,7 @@
                                     </div>
                                 </fieldset>
                             </div>
+
                             <div id="divInventory" runat="server" style="width: 100%;">
                                 <fieldset>
                                     <legend>Invetory Reports</legend>
@@ -362,6 +380,7 @@
                                     </div>
                                 </fieldset>
                             </div>
+
                             <div id="divAccounting" runat="server" style="width: 100%;">
                                 <fieldset>
                                     <legend>Accounting Reports</legend>
@@ -432,6 +451,7 @@
 
                                 </fieldset>
                             </div>
+
                             <div id="divStatutory" runat="server" style="width: 100%;">
                                 <fieldset>
                                     <legend>Statutory Reports</legend>
@@ -495,7 +515,7 @@
                                     <legend>DEO Reports
                                     </legend>
                                     <div style="width: 100%;" class="divclasswithfloat">
-                                        <%--<div style="text-align: left; width: 25%; float: left;" class="label">
+                                    <%--    <div style="text-align: left; width: 25%; float: left;" class="label">
 	                                        <div style="text-align: left; width: 15%; float: left;" class="label">
                                                 <img src="../Images/checked.gif" />
 											</div>
@@ -519,6 +539,32 @@
                                                 <a style="text-decoration: none; color: black" href="../ReportUI/DEO_Patrak_3.aspx">Patrak-3</a>
                                             </div>
                                         </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                              <div id="divResultReports" runat="server" style="width: 100%">
+                                <fieldset>
+                                    <legend>Result Reports
+                                    </legend>
+                                    <div style="width: 100%;" class="divclasswithfloat">
+                                        <div style="text-align: left; width: 25%; float: left;" class="label">
+	                                        <div style="text-align: left; width: 15%; float: left;" class="label">
+                                                <img src="../Images/checked.gif" />
+											</div>
+											<div style="text-align: left; width: 85%; float: left;" class="label">
+                                                <a style="text-decoration: none; color: black" href="../Result/ClassWiseResultReport.aspx">ClassWise Result Report</a>
+                                            </div>
+										</div>
+                                        <div style="text-align: left; width: 25%; float: left;" class="label">
+                                            <div style="text-align: left; width: 15%; float: left;" class="label">
+                                                <img src="../Images/checked.gif" />
+                                            </div>
+                                            <div style="text-align: left; width: 85%; float: left;" class="label">
+                                                <a style="text-decoration: none; color: black" href="../Result/GradeWiseResultReport.aspx">ClassWise Grade Report</a>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                 </fieldset>
                             </div>

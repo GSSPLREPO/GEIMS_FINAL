@@ -699,10 +699,14 @@ namespace GEIMS.PayRoll
                         //    c = c + 1;
                         //}
                     }
+                    //Note :Added ITotal To subtract itotal value from PF amount
+                    //Name :Yogesh Patel    
+                    //Date : 23-06-2022
                     else if (payname != "P.TAX")
                     {
+                        
                         Double iTotal = Convert.ToDouble(txtPayEarnedDays.Text) / Convert.ToDouble(TD);
-                        amt = (amt * Convert.ToDouble(txtPayEarnedDays.Text)) / Convert.ToDouble(TD);
+                        amt = (amt * Convert.ToDouble(txtPayEarnedDays.Text)) / Convert.ToDouble(TD)- Convert.ToDouble(iTotal);// Added ITotal To substact itotal valcue from PF amount
                         txt.Text = Convert.ToString(Math.Round(Convert.ToDouble(amt.ToString()), 0));
                         c = c + 1;
                     }

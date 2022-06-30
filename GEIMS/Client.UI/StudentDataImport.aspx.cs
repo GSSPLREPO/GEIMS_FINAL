@@ -377,7 +377,7 @@ namespace GEIMS.Client.UI
                         if (worksheet.Cell(j, 3).Value != "" && worksheet.Cell(j, 5).Value != "" && worksheet.Cell(j, 6).Value != "" && worksheet.Cell(j, 8).Value != "" && worksheet.Cell(j, 33).Value != "" && worksheet.Cell(j, 34).Value != "")
                         {
                             IFormatProvider yyyymmddFormat = new System.Globalization.CultureInfo("en-GB", false);
-                            double d = double.Parse(worksheet.Cell(j, 35).Value);
+                            double d = double.Parse(worksheet.Cell(j, 34).Value);
                             DateTime conv = DateTime.FromOADate(d);
                             string Birthdate = conv.ToString("dd-MM-yyyy", yyyymmddFormat);
 

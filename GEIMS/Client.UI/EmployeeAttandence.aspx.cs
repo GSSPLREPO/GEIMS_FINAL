@@ -353,27 +353,35 @@ namespace GEIMS.Client.UI
         {
             try
             {
-                btnSave.Enabled = true;
-                // GetSchoolName();
-                // ddlSchoolName.Visible = true;
-                // ddlSection.Visible = true;
-                if ((txtdate.Text != "") && (ddlSchoolName.SelectedIndex  > 0 ) && (ddlDepartment.SelectedIndex > 0))
+                if (txtdate.Text != "")
                 {
-                    gvEmployee.Visible = true;
-                    BindEmpolyeeGrid_DepartmentWise();
-                }
-                else if ((txtdate.Text != "") && (ddlSchoolName.SelectedIndex > 0) && (ddlDepartment.SelectedIndex == 0))
-                {
-                    gvEmployee.Visible = true;
-                    // ddlDepartment.SelectedIndex=;
-                    BindEmpolyeeGrid_SchoolWise();
+                    btnSave.Enabled = true;
+                    // GetSchoolName();
+                    // ddlSchoolName.Visible = true;
+                    // ddlSection.Visible = true;
+                    if ((txtdate.Text != "") && (ddlSchoolName.SelectedIndex > 0) && (ddlDepartment.SelectedIndex > 0))
+                    {
+                        gvEmployee.Visible = true;
+                        BindEmpolyeeGrid_DepartmentWise();
+                    }
+                    else if ((txtdate.Text != "") && (ddlSchoolName.SelectedIndex > 0) && (ddlDepartment.SelectedIndex == 0))
+                    {
+                        gvEmployee.Visible = true;
+                        // ddlDepartment.SelectedIndex=;
+                        BindEmpolyeeGrid_SchoolWise();
+                    }
+                    else
+                    {
+                        //BindEmpolyeeGrid();
+                        gvEmployee.Visible = false;
+                    }
+                    divNote.Visible = true;
                 }
                 else
                 {
-                    //BindEmpolyeeGrid();
-                    gvEmployee.Visible = false;
+                    ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Please Select Date to View Data.');</script>");
+                    txtdate.Focus();
                 }
-                divNote.Visible = true;
             }
             catch (Exception ex)
             {

@@ -2160,6 +2160,10 @@ namespace GEIMS.Common
 
             return words;
         }
+
+       
+
+     
         #endregion
 
         #region Dynamic DT
@@ -2366,5 +2370,82 @@ namespace GEIMS.Common
 
 
         #endregion
+
+        #region ConvertAmountInWords
+        public string NumberToWords(double doubleNumber)
+        {
+            int beforeFloatingPoint = (int)Math.Floor(doubleNumber);
+            string beforeFloatingPointWord = string.Format("{0} rupees", NumberToWords(beforeFloatingPoint));
+            string afterFloatingPointWord = string.Format("{0} paisa only.", SmallNumberToWord((int)((doubleNumber - beforeFloatingPoint) * 100), ""));
+            if ((int)((doubleNumber - beforeFloatingPoint) * 100) > 0)
+            {
+                return string.Format("{0} and {1}", beforeFloatingPointWord, afterFloatingPointWord);
+            }
+            else
+            {
+                return string.Format("{0} only", beforeFloatingPointWord);
+            }
+        }
+
+        private string SmallNumberToWord(int number, string words)
+        {
+            if (number <= 0) return words;
+            if (words != "")
+                words += " ";
+
+            var unitsMap = new[] { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "seventeen", "eighteen", "nineteen" };
+            var tensMap = new[] { "Zero", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
+
+            if (number < 20)
+                words += unitsMap[number];
+            else
+            {
+                words += tensMap[number / 10];
+                if ((number % 10) > 0)
+                    words += " " + unitsMap[number % 10];
+            }
+            return words;
+        }
+
+        private string NumberToWords(int number)
+        {
+            if (number == 0)
+                return "zero";
+
+            if (number < 0)
+                return "minus " + NumberToWords(Math.Abs(number));
+
+            var words = "";
+
+            if (number / 1000000000 > 0)
+            {
+                words += NumberToWords(number / 1000000000) + " billion ";
+                number %= 1000000000;
+            }
+
+            if (number / 1000000 > 0)
+            {
+                words += NumberToWords(number / 1000000) + " million ";
+                number %= 1000000;
+            }
+
+            if (number / 1000 > 0)
+            {
+                words += NumberToWords(number / 1000) + " thousand ";
+                number %= 1000;
+            }
+
+            if (number / 100 > 0)
+            {
+                words += NumberToWords(number / 100) + " hundred ";
+                number %= 100;
+            }
+
+            words = SmallNumberToWord(number, words);
+
+            return words;
+        }
+        #endregion
+
     }
 }

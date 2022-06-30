@@ -306,18 +306,21 @@ namespace GEIMS.Client.UI
                 TimeTableBL objTimeTableBl = new TimeTableBL();
                 for (int i = 1; i <= Convert.ToInt32(hfNoOfPeriod.Value); i++)
                 {
+                    // Label lbl = Page.Master.FindControl("ContentPlaceHolder1").FindControl("lblPeriod" + i.ToString()) as Label;
                     Label lbl = Page.Master.FindControl("ContentPlaceHolder1").FindControl("lblPeriod" + i.ToString()) as Label;
+
                     DropDownList ddl1 = Page.Master.FindControl("ContentPlaceHolder1").FindControl("ddlSubject" + i.ToString()) as DropDownList;
                     DropDownList ddl2 = Page.Master.FindControl("ContentPlaceHolder1").FindControl("ddlTeacher" + i.ToString()) as DropDownList;
                     objTimeTableBo.PeriodID = Convert.ToInt32(lbl.Text);
                     objTimeTableBo.SubjectMID = Convert.ToInt32(ddl1.SelectedValue);
                     objTimeTableBo.EmployeeMID = Convert.ToInt32(ddl2.SelectedValue);
+                    objTimeTableBo.EmployeeMID = Convert.ToInt32(ddl2.SelectedValue);
                     objResult = objTimeTableBl.TimeTable_Insert(objTimeTableBo, Convert.ToInt32(ddlClass.SelectedValue),
                         Convert.ToInt32(ddlDivision.SelectedValue),
                         Convert.ToInt32(Session[ApplicationSession.USERID].ToString()),
                         DateTime.UtcNow.AddHours(5.5).ToString());
-                }
-                BindTimeTable();
+            }
+                    BindTimeTable();
                 PanelVisibility(1);
                 ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Record saved successfully.');</script>");
             }

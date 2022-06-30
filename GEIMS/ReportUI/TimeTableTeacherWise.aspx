@@ -638,6 +638,16 @@
                                
                             </tr>
                         </table>
+
+                                    <asp:GridView ID="gvReport" Visible="true" runat="server" BackColor="White" BorderColor="Black" AutoGenerateColumns="true"
+                                    CellPadding="4" Font-Names="Verdana" Font-Size="11px" AllowSorting="false" Width="100%">
+                                    <RowStyle BackColor="White" />
+                                    <FooterStyle BackColor="White" Font-Names="Verdana" Font-Size="11px" ForeColor="#333333" />
+                                    <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                                    <HeaderStyle BackColor="White" Font-Bold="True" ForeColor="Black" BorderColor="Black"
+                                        BorderWidth="1px" BorderStyle="Solid" />
+                                </asp:GridView>
+
                     </div>
                 </div>
 

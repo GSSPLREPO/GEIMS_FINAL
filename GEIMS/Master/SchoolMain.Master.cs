@@ -132,6 +132,8 @@ namespace GEIMS.Master
                             flagAttendance = 1;
                         else if (dtRights.Rows[i]["DisplayName"].ToString() == "ApproveDutyLeave")
                             flagAttendance = 1;
+                        else if (dtRights.Rows[i]["DisplayName"].ToString() == "Workingdays")
+                            flagAttendance = 1;
 
                         //For TimeTable
                         else if (dtRights.Rows[i]["DisplayName"].ToString() == "Subject")
@@ -232,6 +234,9 @@ namespace GEIMS.Master
                             flagReport = 1;
                         else if (dtRights.Rows[i]["DisplayName"].ToString() == "ExamResultReport")
                             flagReport = 1;
+                        else if (dtRights.Rows[i]["DisplayName"].ToString() == "ResultReport")
+                            flagResult = 1;
+
 
                         //For Result
                         else if (dtRights.Rows[i]["DisplayName"].ToString() == "ResultCreation")
@@ -250,7 +255,7 @@ namespace GEIMS.Master
                             flagResult = 1;
                         else if (dtRights.Rows[i]["DisplayName"].ToString() == "FinalResult")
                             flagResult = 1;
-
+                        
                         //Budget
                         else if (dtRights.Rows[i]["DisplayName"].ToString() == "BudgetHeading")
                             flagBudget = 1;

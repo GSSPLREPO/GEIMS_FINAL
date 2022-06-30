@@ -245,7 +245,7 @@ namespace GEIMS.BL
         {
             try
             {
-                pSqlParameter = new SqlParameter[12];
+                pSqlParameter = new SqlParameter[16];
 
 
                 pSqlParameter[0] = new SqlParameter("@StudentEducationDetailTID", SqlDbType.Int);
@@ -295,6 +295,24 @@ namespace GEIMS.BL
                 pSqlParameter[11] = new SqlParameter("@LastModifiedDate", SqlDbType.VarChar);
                 pSqlParameter[11].Direction = ParameterDirection.Input;
                 pSqlParameter[11].Value = objStudentPreEducationDetailTBO.LastModifiedDate;
+
+                pSqlParameter[12] = new SqlParameter("@Town", SqlDbType.VarChar);
+                pSqlParameter[12].Direction = ParameterDirection.Input;
+                pSqlParameter[12].Value = objStudentPreEducationDetailTBO.Town;
+
+                pSqlParameter[13] = new SqlParameter("@Taluka", SqlDbType.VarChar);
+                pSqlParameter[13].Direction = ParameterDirection.Input;
+                pSqlParameter[13].Value = objStudentPreEducationDetailTBO.Taluka;
+
+                pSqlParameter[14] = new SqlParameter("@District", SqlDbType.VarChar);
+                pSqlParameter[14].Direction = ParameterDirection.Input;
+                pSqlParameter[14].Value = objStudentPreEducationDetailTBO.District;
+
+                pSqlParameter[15] = new SqlParameter("@State", SqlDbType.VarChar);
+                pSqlParameter[15].Direction = ParameterDirection.Input;
+                pSqlParameter[15].Value = objStudentPreEducationDetailTBO.State;
+
+
 
 
                 sSql = "usp_tbl_StudentPreEducationDetail_T_Update";

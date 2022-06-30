@@ -30,6 +30,7 @@ namespace GEIMS.Client.UI
                 {
                     ViewState["Mode"] = "Save";
                     BindYear();
+                    BindSection();
 
                     divStudentPanel.Visible = false;
                 }
@@ -199,6 +200,7 @@ namespace GEIMS.Client.UI
                     {
                         if (objResults.resultDT.Rows.Count > 0)
                         {
+                            divStudentPanel.Visible = true;
                             txtSchoolName.Text = objResults.resultDT.Rows[0][StudentPreEducationDetailTBO.STUDENTPASTEDUCATIONDETAILT_SCHOOLNAME].ToString();
                             txtSchoolAddress.Text = objResults.resultDT.Rows[0][StudentPreEducationDetailTBO.STUDENTPASTEDUCATIONDETAILT_ADDRESS].ToString();
                             txtMediumName.Text = objResults.resultDT.Rows[0][StudentPreEducationDetailTBO.STUDENTPASTEDUCATIONDETAILT_MEDIUMNAME].ToString();
@@ -210,6 +212,7 @@ namespace GEIMS.Client.UI
                             txtTaluka.Text = objResults.resultDT.Rows[0][StudentPreEducationDetailTBO.STUDENTPASTEDUCATIONDETAILT_TALUKA].ToString();
                             txtTown.Text = objResults.resultDT.Rows[0][StudentPreEducationDetailTBO.STUDENTPASTEDUCATIONDETAILT_TOWN].ToString();
                             ViewState["Mode"] = "Edit";
+                            
                         }
                     }
 
@@ -264,7 +267,7 @@ namespace GEIMS.Client.UI
 
                 #region RollBack Transaction Starts
 
-                DatabaseTransaction.OpenConnectionTransation();
+               // DatabaseTransaction.OpenConnectionTransation();
                 if (ViewState["Mode"].ToString() == "Save")
                 {
                     objResults = objPreEducationBL.StudentPreEducationDetailT_Insert(objPreEducationBO);
@@ -396,6 +399,115 @@ namespace GEIMS.Client.UI
         }
 
         #endregion
-      
+
+        #region Bind Section
+        public void BindSection()
+        {
+            try
+            {
+                SectionBL ObjSectionBl = new SectionBL();
+                ApplicationResult objResult = new ApplicationResult();
+                Controls objControls = new Controls();
+
+                objResult = ObjSectionBl.Section_SelectAll_SectionMID(Convert.ToInt32(Session[ApplicationSession.SCHOOLID]));
+                if (objResult != null)
+                {
+                    if (objResult.resultDT.Rows.Count > 0)
+                    {
+                        objControls.BindDropDown_ListBox(objResult.resultDT, ddlSection1, "SectionName", "SectionMID");
+                        ddlSection1.Items.Insert(0, new ListItem("-Select-", ""));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Error", ex);
+                ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
+            }
+        }
+        #endregion
+
+        #region Bind Class
+        public void BindClass()
+        {
+            try
+            {
+                ClassBL objClassBL = new ClassBL();
+                ClassBO objClassBO = new ClassBO();
+                ApplicationResult objResult = new ApplicationResult();
+                Controls objControls = new Controls();
+
+                int SchoolID = Convert.ToInt32(Session[ApplicationSession.SCHOOLID]);
+                int SectionID = Convert.ToInt32(ddlSection1.SelectedValue.ToString());
+
+                objResult = objClassBL.Find_Class_SectionWise(SchoolID, SectionID);
+
+                if (objResult != null)
+                {
+                    if (objResult.resultDT.Rows.Count > 0)
+                    {
+                        objControls.BindDropDown_ListBox(objResult.resultDT, ddlClassName1, "ClassName", "ClassMID");
+                        ddlClassName1.Items.Insert(0, new ListItem("-Select-", "0"));
+                    }
+                    else
+                    {
+                        objControls.BindDropDown_ListBox(objResult.resultDT, ddlClassName1, "ClassName", "ClassMID");
+                        ddlDivisionName1.Items.Insert(0, new ListItem("-Select-", "0"));
+                        ddlDivisionName1.ClearSelection();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Error", ex);
+                ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
+            }
+        }
+        #endregion
+
+        #region Bind Division
+        public void BindDivision()
+        {
+            try
+            {
+                ClassBL objClassBL = new ClassBL();
+                ClassBO objClassBO = new ClassBO();
+                ApplicationResult objResult = new ApplicationResult();
+                Controls objControls = new Controls();
+
+                int ClassID = Convert.ToInt32(ddlClassName1.SelectedValue.ToString());
+
+                objResult = objClassBL.Find_Division_ClassWise(ClassID);
+
+                if (objResult != null)
+                {
+                    if (objResult.resultDT.Rows.Count > 0)
+                    {
+                        objControls.BindDropDown_ListBox(objResult.resultDT, ddlDivisionName1, "DivisionName", "DivisionTID");
+                        ddlDivisionName1.Items.Insert(0, new ListItem("-Select-", "0"));
+                    }
+                    else
+                    {
+                        objControls.BindDropDown_ListBox(objResult.resultDT, ddlDivisionName1, "DivisionName", "DivisionTID");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Error", ex);
+                ClientScript.RegisterStartupScript(typeof(Page), "MessagePopUp", "<script>alert('Oops! There is some technical issue. Please Contact to your administrator.');</script>");
+            }
+        }
+        #endregion
+
+        protected void ddlSection1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindClass();
+        }
+
+        protected void ddlClassName1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindDivision();
+        }
     }
 }

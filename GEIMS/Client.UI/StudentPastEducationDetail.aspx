@@ -12,7 +12,8 @@
                         type: "POST",
                         contentType: "application/json; charset=utf-8",
                         url: "StudentPastEducationDetail.aspx/GetAllStudentNameForReport",
-                        data: "{'prefixText':'" + request.term + "','SearchType':'" + $(document.getElementById('<%= ddlSearchBy.ClientID %>')).val() + "','SchoolMID':'" +<%=Session[ApplicationSession.SCHOOLID] %> + "'}",
+                        <%--data: "{'prefixText':'" + request.term + "','SearchType':'" + $(document.getElementById('<%= ddlSearchBy.ClientID %>')).val() + "','SchoolMID':'" +<%=Session[ApplicationSession.SCHOOLID] %> + "'}",--%>
+                        data: "{'prefixText':'" + request.term + "','SearchType':'" + $(document.getElementById('<%= ddlSearchBy.ClientID %>')).val() + "','SchoolMID':'" +<%=Session[ApplicationSession.SCHOOLID] %> + "','SectionType':'" + $(document.getElementById('<%= ddlSection1.ClientID %>')).val() + "','ClassType':'" + $(document.getElementById('<%= ddlClassName1.ClientID %>')).val() + "','DivisionType':'" + $(document.getElementById('<%= ddlDivisionName1.ClientID %>')).val() + "'}",
                     dataType: "json",
                     success: function (data) {
                         response($.map(data.d, function (item) {
@@ -58,20 +59,36 @@
                             <fieldset>
                                 <legend>Search Student</legend>
                                 <div class="divclasswithfloat">
-                                    <div style="width: 80%; float: left;">
-                                        <asp:DropDownList ID="ddlSearchBy" Width="150px" CssClass="textarea" runat="server">
+                                    <div style="width: 100%; float: left;">
+                                         <asp:DropDownList runat="server" CssClass="textarea" ID="ddlSection1" Height="23px" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlSection1_SelectedIndexChanged">
+                             <asp:ListItem Value="-1">-Select-</asp:ListItem>  
+                        </asp:DropDownList>
+                        &nbsp;&nbsp;
+                        <asp:DropDownList ID="ddlClassName1"  CssClass="textarea" runat="server" Height="23px" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlClassName1_SelectedIndexChanged"  >
+                             <asp:ListItem Value="-1">-Select-</asp:ListItem>                                          
+                        </asp:DropDownList>
+                        <asp:HiddenField ID="hfClassID" runat="server" />
+                        &nbsp;&nbsp;
+                        <asp:DropDownList ID="ddlDivisionName1"  CssClass="textarea" runat="server" Height="23px" Width="150px">
+                             <asp:ListItem Value="-1">-Select-</asp:ListItem>                                          
+                        </asp:DropDownList>  
+                        <asp:HiddenField ID="hfDivisionID" runat="server" />
+                        <asp:HiddenField ID="hfSectionID" runat="server" />
+                         &nbsp;&nbsp;
+                                        <asp:DropDownList ID="ddlSearchBy" Width="130px"  Height="23px" CssClass="textarea" runat="server">
                                             <asp:ListItem Value="-1">-Select-</asp:ListItem>
                                             <asp:ListItem Value="1">Student Name</asp:ListItem>
                                             <asp:ListItem Value="2">Student GR NO</asp:ListItem>
                                             <asp:ListItem Value="3">Student Form No</asp:ListItem>
                                             <asp:ListItem Value="4">Student Unique ID</asp:ListItem>
                                         </asp:DropDownList>
-                                        &nbsp;&nbsp;&nbsp;
-                                            <asp:TextBox ID="txtSearchName" runat="server" CssClass="textarea autosuggest"></asp:TextBox>
-                                        &nbsp;&nbsp;&nbsp;
+                         &nbsp;&nbsp;
                                         <asp:HiddenField runat="server" ID="hfSearchName" />
-                                    </div>
-                                    <div style="width: 20%; float: left; text-align: right">
+                        <asp:TextBox ID="txtSearchName" runat="server" CssClass="textarea autosuggest"></asp:TextBox>
+                                                    
+                                            
+                         </div>
+                                    <div style="width: 100%; float: left; text-align: right">
                                         <asp:Button ID="btnGo" runat="server" CssClass="btn-blue-new Detach" Width="50px" Text="Search" CausesValidation="false"
                                             OnClick="btnGo_Click" />
                                     </div>
@@ -228,10 +245,10 @@
                                             <asp:TextBox ID="txtPassedExam" runat="server" CssClass="validate[required] TextBox" Width="60%"></asp:TextBox>
                                         </div>
                                         <div style="text-align: left; width: 20%; float: left;" class="label">
-                                            Passing Year :<span style="color: red">*</span>
+                                            Passing Year :<span style="color: red">*</span> 
                                         </div>
                                         <div style="text-align: left; width: 30%; float: left;">
-                                            <asp:DropDownList ID="ddlPassingYear" runat="server" CssClass="Droptextarea" Width="160px" Enabled="true">
+                                            <asp:DropDownList ID="ddlPassingYear" runat="server" CssClass="validate[required] Droptextarea" Width="160px" Enabled="true">
                                             </asp:DropDownList>
                                         </div>
                                     </div>

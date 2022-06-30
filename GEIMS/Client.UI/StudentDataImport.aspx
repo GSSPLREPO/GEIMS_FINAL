@@ -12,7 +12,7 @@
                     School Name :<span style="color: red">*</span>
                 </div>
                 <div style="float: left; width: 85%;">
-                    <asp:DropDownList ID="ddlSchoolName" runat="server" CssClass=" Droptextarea" Width="260px" Enabled="true" AutoPostBack="True" OnSelectedIndexChanged="ddlSchoolName_SelectedIndexChanged">
+                    <asp:DropDownList ID="ddlSchoolName" runat="server" CssClass="validate[required] Droptextarea" Width="260px" Enabled="true" AutoPostBack="True" OnSelectedIndexChanged="ddlSchoolName_SelectedIndexChanged">
                     </asp:DropDownList>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                     Section Name :<span style="color: red">*</span>
                 </div>
                 <div style="float: left; width: 85%;">
-                    <asp:DropDownList ID="ddlSection" runat="server" CssClass=" Droptextarea" Width="260px" Enabled="true" AutoPostBack="True" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
+                    <asp:DropDownList ID="ddlSection" runat="server" CssClass="validate[required] Droptextarea" Width="260px" Enabled="true" AutoPostBack="True" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
                     </asp:DropDownList>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     Class Name :<span style="color: red">*</span>
                 </div>
                 <div style="float: left; width: 85%;">
-                    <asp:DropDownList ID="ddlClassName" runat="server" CssClass=" Droptextarea" Width="260px" Enabled="true" AutoPostBack="True" OnSelectedIndexChanged="ddlClassName_SelectedIndexChanged">
+                    <asp:DropDownList ID="ddlClassName" runat="server" CssClass="validate[required] Droptextarea" Width="260px" Enabled="true" AutoPostBack="True" OnSelectedIndexChanged="ddlClassName_SelectedIndexChanged">
                     </asp:DropDownList>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                     Division Name :<span style="color: red">*</span>
                 </div>
                 <div style="float: left; width: 85%;">
-                    <asp:DropDownList ID="ddlDivisionName" runat="server" CssClass=" Droptextarea" Width="260px" Enabled="true">
+                    <asp:DropDownList ID="ddlDivisionName" runat="server" CssClass="validate[required] Droptextarea" Width="260px" Enabled="true">
                     </asp:DropDownList>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     Year :<span style="color: red">*</span>
                 </div>
                 <div style="float: left; width: 85%;">
-                    <asp:DropDownList ID="ddlYear" runat="server" CssClass=" Droptextarea" Width="260px" Enabled="true">
+                    <asp:DropDownList ID="ddlYear" runat="server" CssClass="validate[required] Droptextarea" Width="260px" Enabled="true">
                     </asp:DropDownList>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                     Status :<span style="color: red">*</span>
                 </div>
                 <div style="float: left; width: 85%;">
-                    <asp:DropDownList ID="ddlStatus" runat="server" CssClass=" Droptextarea" Width="260px" Enabled="true">
+                    <asp:DropDownList ID="ddlStatus" runat="server" CssClass="validate[required] Droptextarea" Width="260px" Enabled="true">
                     </asp:DropDownList>
                 </div>
             </div>
@@ -219,4 +219,16 @@
             </div>
         </div>
     </div>
+      <script type="text/javascript">
+       jQuery("#aspnetForm").validationEngine('attach', {
+           promptPosition: "bottomRight",
+           validationEventTrigger: "submit",
+           validateNonVisibleFields: false,
+           updatePromptsPosition: true
+       });
+       //var totalAmount = 0, TotalDiscount = 0, Total = 0, TotalAmountnotCheck = 0;
+       $('.Detach').click(function () {
+           $("#aspnetForm").validationEngine('detach');
+       });
+      </script>
 </asp:Content>

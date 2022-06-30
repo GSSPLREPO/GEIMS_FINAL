@@ -51,6 +51,8 @@
                                     <asp:ListItem>8</asp:ListItem>
                                     <asp:ListItem>9</asp:ListItem>
                                     <asp:ListItem>10</asp:ListItem>
+                                     <asp:ListItem>11</asp:ListItem>
+                                     <asp:ListItem>12</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
 
@@ -74,12 +76,12 @@
                             <div style="text-align: left; width: 81%; float: left;">
                                 <asp:DropDownList runat="server" ID="DropDownList1" CssClass="Droptextarea">
                                     <asp:ListItem>--Select--</asp:ListItem>
-                                    <asp:ListItem>10-11</asp:ListItem>
-                                    <asp:ListItem>11-12</asp:ListItem>
-                                    <asp:ListItem>12-13</asp:ListItem>
-                                    <asp:ListItem>13-14</asp:ListItem>
-                                    <asp:ListItem>14-15</asp:ListItem>
-                                    <asp:ListItem>15-16</asp:ListItem>
+                                    <asp:ListItem>20-21</asp:ListItem>
+                                    <asp:ListItem>21-22</asp:ListItem>
+                                    <asp:ListItem>22-23</asp:ListItem>
+                                    <asp:ListItem>23-24</asp:ListItem>
+                                    <asp:ListItem>24-25</asp:ListItem>
+                                    <asp:ListItem>25-26</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                         </div>

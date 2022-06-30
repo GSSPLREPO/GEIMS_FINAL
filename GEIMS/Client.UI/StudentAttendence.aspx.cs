@@ -116,7 +116,8 @@ namespace GEIMS.Client.UI
                     }
                 }
                 objControls.BindDropDown_ListBox(dt, ddlAcademicYear, "AcademicYear", "AcademicYear");
-                ddlAcademicYear.Items.Insert(0, new ListItem("--Select--", "0"));
+               
+                //ddlAcademicYear.Items.Insert(0, new ListItem("--Select--", "0"));
             }
             catch (Exception ex)
             {

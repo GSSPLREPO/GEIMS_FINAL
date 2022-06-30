@@ -213,6 +213,15 @@ namespace GEIMS.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl StudentAttendence;
 
         /// <summary>
+        /// Workingdays control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Workingdays;
+
+        /// <summary>
         /// ApproveLeave control.
         /// </summary>
         /// <remarks>
@@ -798,13 +807,13 @@ namespace GEIMS.Master
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl SchoolDEOReport;
 
         /// <summary>
-        /// ExamResultReport control.
+        /// ResultReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ExamResultReport;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ResultReport;
 
         /// <summary>
         /// lblUserName control.

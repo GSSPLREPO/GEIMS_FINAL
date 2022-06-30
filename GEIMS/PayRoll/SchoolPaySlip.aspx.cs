@@ -203,7 +203,7 @@ namespace GEIMS.PayRoll
                     lblMonth.Text = ddlMonth.SelectedItem.ToString() + " " + ddlYear.SelectedItem.ToString();
                     Label lblAmountInWords = (Label)e.Item.FindControl("lblAmountInWords");
                     CommonFunctions objFuction = new CommonFunctions();
-                    string strAmount = objFuction.ConvertInWords(Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "NetSalary").ToString()));
+                    string strAmount = objFuction.NumberToWords(Convert.ToDouble(DataBinder.Eval(e.Item.DataItem, "NetSalary")));
                     lblAmountInWords.Text = Convert.ToString(strAmount);
                     objResult = objPaySlipBl.Select_EmployeeDetail_ForPaySlipPrint(Convert.ToInt32(Session[ApplicationSession.TRUSTID]), Convert.ToInt32(Session[ApplicationSession.SCHOOLID]), Convert.ToInt32(hfEmployeeMID.Value), Convert.ToInt32(ddlMonth.SelectedValue), Convert.ToInt32(ddlYear.SelectedValue), 1);
                     if (objResult != null)
@@ -271,7 +271,7 @@ namespace GEIMS.PayRoll
                     lblMonth.Text = ddlMonth.SelectedItem.ToString() + " " + ddlYear.SelectedItem.ToString();
                     Label lblAmountInWords = (Label)e.Item.FindControl("lblAmountInWords1");
                     CommonFunctions objFuction = new CommonFunctions();
-                    string strAmount = objFuction.ConvertInWords(Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "NetSalary").ToString()));
+                    string strAmount = objFuction.NumberToWords(Convert.ToDouble(DataBinder.Eval(e.Item.DataItem, "NetSalary")));
                     lblAmountInWords.Text = Convert.ToString(strAmount);
                     objResult = objPaySlipBl.Select_EmployeeDetail_ForPaySlipPrint(Convert.ToInt32(Session[ApplicationSession.TRUSTID]), Convert.ToInt32(Session[ApplicationSession.SCHOOLID]), Convert.ToInt32(hfEmployeeMID.Value), Convert.ToInt32(ddlMonth.SelectedValue), Convert.ToInt32(ddlYear.SelectedValue), 1);
                     if (objResult != null)
@@ -339,7 +339,7 @@ namespace GEIMS.PayRoll
                     lblMonth.Text = ddlMonth.SelectedItem.ToString() + " " + ddlYear.SelectedItem.ToString();
                     Label lblAmountInWords = (Label)e.Item.FindControl("lblAmountInWords12");
                     CommonFunctions objFuction = new CommonFunctions();
-                    string strAmount = objFuction.ConvertInWords(Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "NetSalary").ToString()));
+                    string strAmount = objFuction.NumberToWords(Convert.ToDouble(DataBinder.Eval(e.Item.DataItem, "NetSalary").ToString()));
                     lblAmountInWords.Text = Convert.ToString(strAmount);
                     objResult = objPaySlipBl.Select_EmployeeDetail_ForPaySlipPrint(Convert.ToInt32(Session[ApplicationSession.TRUSTID]), Convert.ToInt32(Session[ApplicationSession.SCHOOLID]), Convert.ToInt32(hfEmployeeMID.Value), Convert.ToInt32(ddlMonth.SelectedValue), Convert.ToInt32(ddlYear.SelectedValue), 1);
                     if (objResult != null)

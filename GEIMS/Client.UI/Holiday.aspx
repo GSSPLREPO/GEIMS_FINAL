@@ -22,7 +22,7 @@
     <div id="divCurrenTabSelected" class="hidden" visible="false">div1</div>
     <div id="divMain" style="width: 100%; text-align: left; padding-top: 5px;">
         <div id="divTitle" class="pageTitle" style="width: 100%;">
-            Holiday Master
+            Holiday 
             <asp:LinkButton CausesValidation="false" ID="lnkAddNewClass" runat="server" CssClass="btn-blue btn-blue-medium Detach" OnClick="lnkAddNewClass_OnClick">Add New</asp:LinkButton>
             &nbsp;
 			 <asp:LinkButton CausesValidation="false" ID="lnkViewList" runat="server" CssClass="btn-blue btn-blue-medium Detach" OnClick="lnkViewList_OnClick">View List</asp:LinkButton>

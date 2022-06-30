@@ -491,7 +491,8 @@ namespace GEIMS.ReportUI
 
                 Response.AddHeader("content-disposition", "attachment;filename=" + Session[ApplicationSession.SCHOOLNAME].ToString().Replace(" ", "_").Replace("<br/>", "") + "_" + DateTime.Now.Date.ToString("dd-MM-yyyy") + ".xls");
                 Response.Charset = "";
-                Response.ContentType = "application/vnd.ms-excel";
+                //Response.ContentType = "application/vnd.ms-excel"; 
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
                 Response.ContentEncoding = System.Text.Encoding.Unicode;
                 Response.BinaryWrite(System.Text.Encoding.Unicode.GetPreamble());
                 StringWriter sw = new StringWriter();
@@ -513,7 +514,26 @@ namespace GEIMS.ReportUI
 
                 // string content = "<div align='center' style='font-family:verdana;font-size:13px'><span style='font-size:13px:font-weight:bold'>" + ReportTitle + "</span><br/><br/>" + sw.ToString() + "</div>";
                 //string content = "<div align='center' style='font-family:verdana;font-size:13px'><span style='font-size:16px:font-weight:bold;color:Maroon;'>" + lblTitle.Text + "</span><br/><br/><span style='font-size:13px:font-weight:bold'>" + ReportTitle + "</span><br/><br/><div align='right' style='font-family:verdana;font-size:11px'><strong>Date :</strong>" + Date + "</div><br/>" + sw.ToString() + "<br/><br/><br/><div align='left'><span style='font-size:11px:font-weight:bold:padding-left:2px'>" + lblText.Text + "</span></div>";
-                string content = "<div align='center' style='font-family:verdana;font-size:13px'><span style='font-size:16px:font-weight:bold;color:Maroon;'>Student List Report</span><br/><br/><span style='font-size:13px:font-weight:bold'></span><br/><br/><div align='center' style='font-family:verdana;font-size:11px'><strong>Date :</strong>" + System.DateTime.Now.ToShortDateString() + "</div><br/><div align='center' style='font-family:verdana;font-size:11px'><strong>School Name :</strong>" + Session[ApplicationSession.SCHOOLNAME].ToString() + "</div><br/><div align='center' style='font-family:verdana;font-size:11px'><strong>Section :</strong>" + ddlsection.SelectedItem.ToString() + "</div><br/><div align='center' style='font-family:verdana;font-size:11px'><strong>Division:</strong>" + ddlclass.SelectedItem.ToString() + "-" + ddlDivision.SelectedItem.ToString() + "</div><br/><div align='center' style='font-family:verdana;font-size:11px'><strong>Year:</strong>" + ddlYear.SelectedItem.ToString() + "</div><br/><div align='center' style='font-family:verdana;font-size:11px'><strong>Status:</strong>" + ddlStatus.SelectedItem.ToString() + "</div><br/>" + sw.ToString() + "<br/><br/><br/><div align='left'><span style='font-size:11px:font-weight:bold:padding-left:2px'></span></div>";
+                //string content = "<div align='center' style='font-family:verdana;font-size:13px'><span style='font-size:16px:font-weight:bold;color:Maroon;'>Student List Report</span><br/><br/><span style='font-size:13px:font-weight:bold'></span><br/><br/><div align='center' style='font-family:verdana;font-size:11px'><strong>Date :</strong>" + System.DateTime.Now.ToShortDateString() + "</div><br/><div align='center' style='font-family:verdana;font-size:11px'><strong>School Name :</strong>" + Session[ApplicationSession.SCHOOLNAME].ToString() + "</div><br/><div align='center' style='font-family:verdana;font-size:11px'><strong>Section :</strong>" + ddlsection.SelectedItem.ToString() + "</div><br/><div align='center' style='font-family:verdana;font-size:11px'><strong>Division:</strong>" + ddlclass.SelectedItem.ToString() + "-" + ddlDivision.SelectedItem.ToString() + "</div><br/><div align='center' style='font-family:verdana;font-size:11px'><strong>Year:</strong>" + ddlYear.SelectedItem.ToString() + "</div><br/><div align='center' style='font-family:verdana;font-size:11px'><strong>Status:</strong>" + ddlStatus.SelectedItem.ToString() + "</div><br/>" + sw.ToString() + "<br/><br/><br/><div align='left'><span style='font-size:11px:font-weight:bold:padding-left:2px'></span></div>";
+                string content = "<div align='left' style='font-family:verdana;font-size:13px' >" +
+                    "<div align='left' style='font-family:verdana;font-size:11px'><strong>Current</strong></div>" +
+                    "<div align='left' style='font-family:verdana;font-size:11px'><strong>Completed</strong></div>" +
+                    "<div align='left style='font-family:verdana;font-size:11px'><strong>Left</strong></div>" +
+                    "<div align='left' style='font-family:verdana;font-size:11px'><strong>Drop:</strong></div>" +
+                    "<div align='left' style='font-family:verdana;font-size:11px'><strong>Cancelled:</strong></div>" +
+                      "<div align='left' style='font-family:verdana;font-size:11px'><strong>Fail:</strong></div>" +
+                    "<span style='font-size:16px:font-weight:bold;color:Maroon;'>Student List Report</span><br/>" +
+                    "<br/><span style='font-size:13px:font-weight:bold'></span>" +
+                    //"<div align='left' style='font-family:verdana;font-size:11px'><strong>Date :</strong>" + System.DateTime.Now.ToShortDateString() + "</div><br/>" +
+                    "<div align='left' style='font-family:verdana;font-size:11px'><strong>School Name :</strong>" + Session[ApplicationSession.SCHOOLNAME].ToString() + "</div><br/>" +
+                    "<div align='left' style='font-family:verdana;font-size:11px'><strong>Section :</strong>" + ddlsection.SelectedItem.ToString() + "</div><br/>" +
+                    "<div align='left style='font-family:verdana;font-size:11px'><strong>Division:</strong>" + ddlclass.SelectedItem.ToString() + "-" + ddlDivision.SelectedItem.ToString() + "</div><br/>" +
+                    "<div align='left' style='font-family:verdana;font-size:11px'><strong>Year:</strong>" + ddlYear.SelectedItem.ToString() + "</div><br/>" +
+                    "<div align='left' style='font-family:verdana;font-size:11px'><strong>Status:</strong>" + ddlStatus.SelectedItem.ToString() + "</div><br/>" + sw.ToString() + "<br/><br/><br/>" +
+
+                    
+
+                    "<div align='left'><span style='font-size:11px:font-weight:bold:padding-left:2px'></span></div>";
                 Response.Output.Write(content);
                 //style to format numbers to string
                 string style = @"<style> .textmode { mso-number-format:\@; } </style>";

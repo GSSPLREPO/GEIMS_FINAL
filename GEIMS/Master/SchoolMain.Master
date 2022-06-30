@@ -144,10 +144,11 @@
                                     <li id="ApplyDutyLeave" runat="server" visible="False"><a href="../DutyLeave/ApplyDutyLeave.aspx">Apply Duty Leave</a></li>
                                 </ul>
                             </li>
-                            <li id="SchoolAttendanceli"><a id="SchoolAttendanceA" runat="server"><span>Attendance</span></a>
+                            <li id="SchoolAttendanceli"><a id="SchoolAttendanceA" runat="server"><span> Attendance</span></a>
                                 <ul>
-                                    <li id="StudentAttendanceConsolidated" runat="server" visible="False"><a href="../Client.UI/StudentAttendanceConsolidated.aspx">Student</a></li>
-                                    <li id="StudentAttendence" runat="server" visible="False"><a href="../Client.UI/StudentAttendence.aspx">Student</a></li>                               
+                                    <li id="StudentAttendanceConsolidated" runat="server" visible="False"><a href="../Client.UI/StudentAttendanceConsolidated.aspx">Student Attendance Consolidated</a></li>
+                                    <li id="StudentAttendence" runat="server" visible="False"><a href="../Client.UI/StudentAttendence.aspx">Student Attendance</a></li> 
+                                    <li id="Workingdays" runat="server" visible="False"><a href="../Client.UI/WorkingDays.aspx">Working Days</a></li> 
                                     <li id="ApproveLeave" runat="server" visible="False"><a href="../Leave/SchoolApproveLeave.aspx">Approve Leave</a></li>
                                     <%--<li id="SchoolApproveLeave" runat="server" visible="False"><a href="../Leave/SchoolApproveLeave.aspx">Approve Leave</a></li>--%>
                                     <li id="ApproveDutyLeave" runat="server" visible="False"><a href="../DutyLeave/SchoolApproveDutyLeave.aspx">Approve Duty Leave</a></li> 
@@ -259,7 +260,7 @@
                                     <li id="SchoolStatutoryReports" runat="server" visible="False"><a href="../Client.UI/SchoolReports.aspx?Mode=SchoolStatutoryReports">Statutory Reports</a></li>
                                     <li id="SchoolTimeTableReports" runat="server" visible="False"><a href="../Client.UI/SchoolReports.aspx?Mode=SchoolTimeTableReports">Time Table Reports</a></li>
                                     <li id="SchoolDEOReport" runat="server" visible="True"><a href="../Client.UI/SchoolReports.aspx?Mode=SchoolDEOReports">DEO Reports</a></li>
-                                    <li id="ExamResultReport" runat="server" visible="False"><a href="../Result/ExamResultReport.aspx">Result Reports</a></li>
+                                    <li id="ResultReport" runat="server" visible="True"><a href="../Client.UI/SchoolReports.aspx?Mode=ResultReports">Result Reports</a></li>
                                    <%-- <li><a href="../ReportUI/SchoolEmpoyeeInformationReport.aspx">Empolyee Information</a></li>
                                     <li><a href="../ReportUI/SchoolEmployeeList.aspx">Employee List</a></li>--%>
                                    <%-- <li><a href="../ReportUI/StudentList.aspx">Export Student List</a></li>--%>
